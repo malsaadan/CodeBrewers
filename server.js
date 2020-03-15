@@ -67,8 +67,7 @@ app.use(requestLogger)
 // register route files
 app.use(exampleRoutes)
 app.use(userRoutes)
-app.use(menuItemRoutes)
-app.use(orderRoutes)
+
 
 // register error handling middleware
 // note that this comes after the route middlewares, because it needs to be
@@ -77,7 +76,7 @@ app.use(errorHandler)
 
 // run API on designated port (3000 in this case)
 app.listen(port, () => {
-  console.log('listening on port' + port)
+  console.log('listening on PORT ' + port)
 })
 
 // needed for testing
