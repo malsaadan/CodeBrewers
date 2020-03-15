@@ -26,5 +26,25 @@ router.get('/api/orders', (req, res) => {
     });
   });
 
+/**
+* Action:       CREATE
+* Method:       POST
+* URI:          /api/articles
+* Description:  Create a new Article
+*/
+router.post('/api/orders', (req, res) => {
+  Order.create(req.body.order)
+  // On a successful `create` action, respond with 201
+  // HTTP status and the content of the new article.
+  .then((newOrder) => {
+    res.status(201).json({ order: newOrder });
+  })
+  // Catch any errors that might occur
+  .catch((error) => {
+    res.status(500).json({ error: error });
+  });
+});
+
+
 
 module.exports = router; 

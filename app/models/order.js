@@ -2,11 +2,16 @@ const mongoose = require ('mongoose')
 
 // Difine the Order Schema ... 
 const orderSchema = new mongoose.Schema ({ 
-    itemsList : [{menuItemID: String , quantity : Number }],
-    totalPrice : { type : Number , sequired : true },
+    itemsList : [
+        {
+            type: Schema.Types.ObjctId,
+            ref:'menuItem'
+        }
+    ],
+    totalPrice : { type : Number , required : true },
     discount :Number,
-    tax : { type : Number , sequired : true },
-    userId : { type : String , sequired : true },
+    tax : { type : Number , required : true },
+    userId : { type : String , required : true },
 }, 
 {
     timestamps : true ,
