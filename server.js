@@ -66,16 +66,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(requestLogger);
 
 // register route files
-<<<<<<< HEAD
-app.use(exampleRoutes)
-app.use(userRoutes)
-
-=======
 app.use(indexRoutes);
 app.use(exampleRoutes);
 app.use(userRoutes);
 app.use(menuItemRoutes);
->>>>>>> 9e3901bd318e077411c55c66c344db24403f44cc
 
 // register error handling middleware
 // note that this comes after the route middlewares, because it needs to be
@@ -84,13 +78,8 @@ app.use(errorHandler);
 
 // run API on designated port (3000 in this case)
 app.listen(port, () => {
-<<<<<<< HEAD
-  console.log('listening on PORT ' + port)
-})
-=======
   console.log("listening on port" + port);
 });
->>>>>>> 9e3901bd318e077411c55c66c344db24403f44cc
 
 // needed for testing
 module.exports = app;
