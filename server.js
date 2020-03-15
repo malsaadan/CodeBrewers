@@ -26,7 +26,6 @@ const requestLogger = require('./lib/request_logger')
 // require middleware for accepting token or bearer
 const tokenOrBearer = require('./lib/token_or_bearer')
 
-
 // Define Ports
 const reactPort = 3000
 const expressPort = 5000
@@ -65,19 +64,14 @@ app.use(bodyParser.urlencoded({ extended: true }))
 // add request logger to create server log
 app.use(requestLogger)
 
-/*** ROUTERS ***/
 // register route files
 app.use(exampleRoutes)
 app.use(userRoutes)
-app.use(orderRoutes)
-
 
 // register error handling middleware
 // note that this comes after the route middlewares, because it needs to be
 // passed any error messages from them
 app.use(errorHandler)
-
-
 
 // run API on designated port (3000 in this case)
 app.listen(port, () => {
