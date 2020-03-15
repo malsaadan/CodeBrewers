@@ -1,11 +1,13 @@
 const mongoose = require ('mongoose')
+const Schema = mongoose.Schema;
 
 // Difine the Order Schema ... 
-const orderSchema = new mongoose.Schema ({ 
+const orderSchema = new Schema ({ 
+
     itemsList : [
         {
-            type: Schema.Types.ObjctId,
-            ref:'MenuItem'
+            type: Schema.Types.ObjectId,
+            ref:'MenuItems'
         }
     ],
     totalPrice : { type : Number , required : true },
@@ -19,7 +21,7 @@ const orderSchema = new mongoose.Schema ({
 )
 
 // Compile our Model based on the Schema 
-Order = mongoose.model('Order' , orderSchema )
+const Order = mongoose.model('Order' , orderSchema )
 
 //Export the modle 
 module.exports = Order ; 
