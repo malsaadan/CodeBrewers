@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 
 // Define Order Schema ...
 const orderSchema = new mongoose.Schema ({ 
-    itemsList : [{menuItemID: string , quantity : Number }],
+    itemsList : [{menuItemID: String , quantity : Number }],
     totalPrice : { type : Number , sequired : true },
     discount :Number,
     tax : { type : Number , sequired : true },
