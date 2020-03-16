@@ -70,6 +70,7 @@ app.use(indexRoutes);
 app.use(exampleRoutes);
 app.use(userRoutes);
 app.use(menuItemRoutes);
+app.use(orderRoutes);
 
 // register error handling middleware
 // note that this comes after the route middlewares, because it needs to be
