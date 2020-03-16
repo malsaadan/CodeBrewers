@@ -4,10 +4,11 @@ const Schema = mongoose.Schema;
 // Difine the Order Schema ... 
 const orderSchema = new Schema ({ 
 
+    // itemsList : [{ name : {type : String} }],
     itemsList : [
         {
             type: Schema.Types.ObjectId,
-            ref:'MenuItems'
+            ref:'MenuItem'
         }
     ],
     totalPrice : { type : Number , required : true },
