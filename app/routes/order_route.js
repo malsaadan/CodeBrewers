@@ -1,20 +1,20 @@
-// Require necessary NPM packages
+// Require necessary NPM packages...
 const express = require('express');
-
-// Require Mongoose Model for order
-const Order= require('../models/order');
-
+// Require Mongoose Model for The Order
+const Menu = require('../models/menuItem');
+const Order = require('../models/order');
 // Instantiate a Router (mini app that only handles routes)
 const router = express.Router();
-/**
+  /*
  * Action:       DESTROY
  * Method:       DELETE
- * URI:         /api/orders/:id
- * Description:  Delete An Order by order ID
+ * URI:          /api/orders/id
+ * Description:  Delete an Orders by ID
  */
-router.delete('/api/orders/:id', (req, res) => {
-    Article.findById(req.params.id)
-    .then((order) => {
+
+router.delete("/api/orders/:id", (req, res) => {
+  Order.findById(req.params.id)
+    .then(order => {
       if (order) {
         // Pass the result of Mongoose's `.delete` method to the next `.then`
         return order.remove();
@@ -22,8 +22,8 @@ router.delete('/api/orders/:id', (req, res) => {
         // If we couldn't find a document with the matching ID
         res.status(404).json({
           error: {
-            name: 'DocumentNotFoundError',
-            message: 'The provided ID Doesn\'t match any documents'
+            name: "DocumentNotFoundError",
+            message: "The provided ID Doesn't match any documents"
           }
         });
       }
@@ -33,10 +33,9 @@ router.delete('/api/orders/:id', (req, res) => {
       res.status(204).end();
     })
     // Catch any errors that might occur
-    .catch((error) => {
+    .catch(error => {
       res.status(500).json({ error: error });
     });
-   });
-  
-  // Export the Router so we can use it in the server.js file
-  module.exports = router;
+});
+
+module.exports = router; 
