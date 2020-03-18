@@ -79,7 +79,7 @@ app.use(errorHandler);
 
 // run API on designated port (3000 in this case)
 app.listen(port, () => {
-  console.log("listening on port" + port);
+  console.log("listening on port " + port);
 });
 
 // needed for testing
