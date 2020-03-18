@@ -36,24 +36,61 @@ router.get('/api/orders', (req, res) => {
 */
 
 // Orders should be dynamic .. :')
-router.post('/api/orders', (req, res) => {
+router.post('/api/orders', /*async*/ (req, res) => {
+// let unPopOrder=req.body.order
+// console.log(" =============== 41 unPopOrder" , unPopOrder )
 
-  Order.create(req.body.order)
+// const unPopList=unPopOrder.itemsList
+// console.log( " =============== 43 unPopList" , unPopList)
+
+// // MAP 
+// // async 
+// // function ... for map .. 
+
+
+// async function popItems () { 
+//    const popList=unPopList.map( (menuID,index)=>{ 
+//     MenuItem.findById(menuID)
+//     .then(menuItem => {
+//       console.log(`========  54 MENU  =========` , menuItem)
+//           console.log(`================= 55 POPLIST ============`,popList)
+
+//       if (menuItem) {
+//         return MenuItem ;
+//       }
+//       })
+//         .catch((error) => {
+//           res.status(500).json({ error: error });
+//         });
+//     })
   
+//   return popList
+// }
+// const popList = await popItems()
+// //}
+
+// console.log(popList, `========== 69 POPLIST ==============`)
+// unPopOrder.itemsList= await  popItems();
+// console.log(`  ======= 71 CREAT ====== ${ unPopOrder.itemsList }`)
+//    Order.create(unPopOrder)
+    Order.create(req.body.order)
+  
+
+  // //creating the list
+
+  //     console.log(`POST ? CREATE NEW ORDER `)
+  //     const newItem=req.body
+  //     console.log(`NEW ::: ${newItem}`)
+  //     //return an object ... 
+  //     //newItem ==> objects .. 
+  //     //
+  //     const item = new MenuItem ({ name : newItem })
+
   // Return all orders as an array of obj  
-  .then((newOrder) => {
-    // Creating a new data using the model Men
-    var book1 = new Book({ name: 'Introduction to Mongoose', price: 10, quantity: 25 });
- 
-    // save model to database
-    book1.save(function (err, book) {
-      if (err) return console.error(err);
-      console.log(book.name + " saved to bookstore collection.");
-    });
+    .then((newOrder) => {
     res.status(201).json({newOrder}); 
   })
-  // MenuItem.create(req.body)
-  // return Order.findOneAndUpdate({ })
+  
   // Catch any errors that might occur
   .catch((error) => {
     res.status(500).json({ error: error });
